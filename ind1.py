@@ -8,28 +8,33 @@ inf_1 = open('3a.txt', 'r')
 inf_2 = open('3b.txt', 'r')
 
 def minSum(file_name):
-    arr_ost = [10001]*10
     n = int(file_name.readline())
+    ln = 4
+    dMin = [100001]*10
     sum = 0
     for i in range(n):
-        text = file_name.readline()
-        a, b = text.split()
-        a = int(a)
-        b = int(b)
-        if (arr_ost[abs(a-b)%10] > abs(a-b)):
-            arr_ost[abs(a-b)%10] = abs(a-b)
-        sum += min(a,b)
+        a, b = map(int, file_name.readline().split())
+        sum += min(a, b)
+        d = abs(a - b)
+        r = d % 10
+        dMinNew = dMin[:]
+        for k in range(1, 10):
+            r0 = (r + k) % 10
+            dMinNew[r0] = min(d + dMin[k], dMinNew[r0])
+        dMinNew[r] = min(d, dMinNew[r])
+        dMin = dMinNew[:]
 
-    print(sum)
+    if sum % 10 == ln:
+        print(sum)
+    else:
+        print(sum, sum % 10, dMin)
+        r0 = ln - sum % 10
+        if r0 < 0: r0 += 10
+        print(sum + dMin[r0])
 
-    cheking = False
-    if sum%10 != 4:
-        for i in range(10):
-            if ((sum + arr_ost[i]) % 10 == 4 and arr_ost!= 10001):
-                cheking = True
-                break
+    file_name.close()
 
-
-
+minSum(inf_1)
 minSum(inf_2)
-# 3+1 8+4 0+4 7+7 2+2
+
+
