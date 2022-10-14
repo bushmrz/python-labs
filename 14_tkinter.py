@@ -1,6 +1,6 @@
 import tkinter
 import random
-
+#1
 def first_app():
 
     def click():
@@ -28,7 +28,7 @@ def first_app():
 
 #first_app()
 
-
+#2
 def inpWord():
     global k
     var = entry.get()
