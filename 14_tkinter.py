@@ -69,7 +69,7 @@ dictionary = {"яблоко": "apple",
               "лимон": "lemon",
               "папайя": "papaya",
               }
-
+ 
 window = tkinter.Tk()
 window.title("Угадай слово")
 label_main = tkinter.Label(window, text="У тебя есть " + str(4) + " попытки: ")
