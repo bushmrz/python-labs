@@ -4,13 +4,13 @@ from tkinter import *
 
 def save_click_txt():
     text = entry.get()
-    with open('myfile.txt', 'w') as file:
+    with open('../myfile.txt', 'w') as file:
         file.write(text)
 
 
 def save_click_html():
     text = entry.get()
-    with open('mypage.html', 'w') as myFile:
+    with open('../mypage.html', 'w') as myFile:
         myFile.write('<html> \n<body> \n')
         myFile.write('<br>' + text + '</br>')
         myFile.write('\n</body> \n</html>')

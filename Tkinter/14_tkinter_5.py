@@ -19,7 +19,7 @@ def click():
 
 def save_click_txt():
     text = entry.get()
-    with open('sphere.txt', 'w', encoding="utf8") as file:
+    with open('../sphere.txt', 'w', encoding="utf8") as file:
         file.write('Объем для сферы радиуса '+ text + ' равен ' + str(res))
 
 
